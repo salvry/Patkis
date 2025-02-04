@@ -29,31 +29,34 @@ const ImageView = (props) => {
     const arrowKeyPress = (event) => {
       if(event.key === "ArrowRight"){
         document.getElementById("next").classList.add("focus");
+        document.getElementById("prev").classList.remove("focus");
         nextPic();
         
       }
       else if(event.key === "ArrowLeft"){
-        previousPic();
-      }
-    }
-    const arrowKeyUp = (event) => {
-      if(event.key === "ArrowRight"){
+        document.getElementById("prev").classList.add("focus");
         document.getElementById("next").classList.remove("focus");
-        nextPic();
-      }
-      else if(event.key === "ArrowLeft"){
         previousPic();
       }
     }
+
+    const removeFocusOnOffClick = (event) => {
+      if(event.target !== "arrow"){
+        document.getElementById("prev").classList.remove("focus");
+        document.getElementById("next").classList.remove("focus");
+      }
+    }
+ 
     useEffect(() => {
       document.addEventListener("keydown", arrowKeyPress);
+      document.addEventListener("click", removeFocusOnOffClick);
     });
   
     return(
       <div className="imageView">
-        <ArrowLeft sx={{ fontSize: 70 }} tabIndex="0" className="arrow" id="prev" onClick={previousPic} />
+        <ArrowLeft sx={{ fontSize: 70 }} className="arrow" id="prev" onClick={previousPic} />
         <img className="Pic" src={pics[index]}/>
-        <ArrowRight sx={{ fontSize: 70 }} tabIndex="0" className="arrow" id="next" onClick={nextPic} />
+        <ArrowRight sx={{ fontSize: 70 }}  className="arrow" id="next" onClick={nextPic} />
       </div>
     );
   }
