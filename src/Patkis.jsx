@@ -13,7 +13,7 @@ const Patkis = (props) => {
     const age = `${yearsOfAge}  ${years} and ${monthsOfAge} ${months} old`;
   
     const pics = ['./Pätkis1.jpg', './Pätkis2.jpg', './Pätkis3.jpg', './Pätkis4.jpg', './Pätkis5.jpg', './Pätkis6.jpg', './Pätkis7.jpg'];
-    const description = `Henlo frens, my name is Pätkis. I am a ${age} Finnish lapphund and a very good boy. Here are some pictures of me growing from a little pupper to a big doggo.`
+    const description = `My name is Pätkis. I am a ${age} Finnish lapphund and a very good boy. Here are some pictures of me growing from a little pupper to a big doggo.`
     
     return(
       <div className="patkis" tabIndex="0">
